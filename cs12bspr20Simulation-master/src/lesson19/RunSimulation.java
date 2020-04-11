@@ -3,8 +3,8 @@ package lesson19;
 import java.util.Random;
 import java.util.Scanner;
 /**
- *  
- * @author tim
+ *
+ * @author Yinghan Lin, Ruoxuan Cao
  *
  */
 
@@ -23,18 +23,24 @@ public class RunSimulation {
 		int numStayHome = Integer.parseInt(args[2]);
 		int numEssential = Integer.parseInt(args[3]);
 		int numSkeptic = Integer.parseInt(args[4]);
+		int numFrequentFlier = Integer.parseInt(args[5]);
+		int numMoreLikelyInfected = Integer.parseInt(args[6]);
 		***/
 		Scanner sc=new Scanner(System.in);
 		System.out.println("Please enter width:");
 		int width=Integer.parseInt(sc.nextLine());
 		System.out.println("Please enter height:");
 		int height=Integer.parseInt(sc.nextLine());
-		System.out.println("Please enter numStayHome:");
+		System.out.println("Please enter the number of StayHome population:");
 		int numStayHome=Integer.parseInt(sc.nextLine());
-		System.out.println("Please enter numEssential:");
+		System.out.println("Please enter the number of Essential population:");
 		int numEssential=Integer.parseInt(sc.nextLine());
-		System.out.println("Please enter numSkeptic:");
+		System.out.println("Please enter the number of Skeptic population:");
 		int numSkeptic=Integer.parseInt(sc.nextLine());
+		System.out.println("Please enter the number of FrequentFlier population:");
+		int numFrequentFlier=Integer.parseInt(sc.nextLine());
+		System.out.println("Please enter the number of MoreLikelyInfected population:");
+		int numMoreLikelyInfected=Integer.parseInt(sc.nextLine());
 		// next we create the population and the country
 		Population population;
 
@@ -42,8 +48,8 @@ public class RunSimulation {
 		//population = new AllStayAtHome(numPeople);
 		//int numEssential = numPeople/10;
 		//int numOther = numPeople/20;
-		//int numStayHome = numPeople - numEssential - numOther;
-		population = new MixedPopulation(numStayHome, numEssential, numSkeptic);
+		//int numStayHome = numPeople - numEssential - numSkeptic-numMoreLikelyInfected-numFrequentFlier;
+		population = new MixedPopulation(numStayHome, numEssential, numSkeptic, numFrequentFlier, numMoreLikelyInfected);
 		population.createPeople();
 
 		Country country = new Country(width,height);

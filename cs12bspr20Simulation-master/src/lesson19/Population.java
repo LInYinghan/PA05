@@ -22,9 +22,7 @@ public class Population{
   }
 
   public void createPeople(){
-    for(int i=0; i<this.people.length; i++){
-      this.addPerson(new Skeptic());
-    }
+    throw new UnsupportedOperationException();
   }
 
 

@@ -3,14 +3,17 @@ package lesson19;
 public class MixedPopulation extends Population{
   int numShelterInPlace;
   int numEssential;
-  int numOthers;
+  int numSkeptic;
+  int numFrequentFlier;
+  int numMoreLikelyInfected;
 
-  public MixedPopulation(int numShelterInPlace, int numEssential, int numOthers){
-    super(numShelterInPlace + numEssential + numOthers);
+  public MixedPopulation(int numShelterInPlace, int numEssential, int numSkeptic, int numFrequentFlier, int numMoreLikelyInfected;){
+    super(numShelterInPlace + numEssential + numSkeptic + numFrequentFlier + numMoreLikelyInfected);
     this.numShelterInPlace = numShelterInPlace;
     this.numEssential = numEssential;
-    this.numOthers = numOthers;
-
+    this.numSkeptic = numSkeptic;
+    this.numFrequentFlier = numFrequentFlier;
+    this.numMoreLikelyInfected = numMoreLikelyInfected;
   }
 
   public void createPeople(){
@@ -20,8 +23,14 @@ public class MixedPopulation extends Population{
     for(int i=0; i<this.numEssential; i++){
       this.addPerson(new StayAtHomeIfSick());
     }
-    for(int i=0; i<this.numOthers; i++){
+    for(int i=0; i<this.numSkeptic; i++){
       this.addPerson(new Skeptic());
+    }
+    for(int i=0; i<this.numFrequentFlier; i++){
+      this.addPerson(new FrequentFlier());
+    }
+    for(int i=0; i<this.numMoreLikelyInfected; i++){
+      this.addPerson(new MoreLikelyInfected());
     }
   }
 }
