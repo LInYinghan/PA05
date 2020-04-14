@@ -62,10 +62,20 @@ public class RunSimulation {
 		country.printCountry();
 
 		System.out.println("\nTracking the Infection");
+		int oldnum = 0;
+		int days = 0;
 		for(int k=0;k<MAX_TICKS; k++) {
 			country.simulateOneStep();
 			country.printState(k);
-
+			if (((country.numInfected+country.numRecovered)-oldnum)!=0){
+				days = days+k;
+				int finaldays = this.numofdays(days);
+			}
+			int infected = country.numInfected + country.numRecovered;
+			int infection = this.Infection(infected);
+			int recovered = country.numRecovered;
+			int recover = this.Recover(recovered);
+			oldnum = infected;
 			if (country.numInfected==0) {
 				break;
 
