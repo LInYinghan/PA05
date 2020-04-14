@@ -4,7 +4,7 @@ import java.util.Random;
 import java.util.Scanner;
 /**
  *
- * @author Yinghan Lin, Ruoxuan Cao
+ * @author Yinghan Lin, Ruoxuan Cao, Irene Li
  *
  */
 
@@ -85,7 +85,15 @@ public class RunSimulation {
 		country.printCountry();
 
 	}
-
+	public int numofdays(int days){
+		return days;
+	}
+	public int Infection(int infected){
+		return infected;
+	}
+	public int Recover(int recovered){
+		return recovered;
+	}
 
 
 
