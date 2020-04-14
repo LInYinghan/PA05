@@ -4,7 +4,7 @@ import java.util.Random;
 import java.util.Scanner;
 /**
  *
- * @author Yinghan Lin, Ruoxuan Cao, Irene Li
+ * @author Yinghan Lin, Ruoxuan Cao, Irene Li, Wendy Mao
  *
  */
 
