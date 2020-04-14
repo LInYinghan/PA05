@@ -13,7 +13,14 @@ public class RunSimulation {
 	private static int MAX_TICKS=1000;
 
 	private Random random = new Random();
-
+	int days;
+	int infected;
+	int recovered;
+	public RunSimulation(int days, int infected, int recovered) {
+		this.days=days;
+		this.quantity=infected;
+		this.pricePerUnit=recovered;
+	}
 	public static void main(String[] args) {
 		// first we get the simulation parameters
 		// from the command line
@@ -62,37 +69,30 @@ public class RunSimulation {
 		country.printCountry();
 
 		System.out.println("\nTracking the Infection");
-		int oldnum = 0;
+		int oldnum;
 		int days = 0;
+		int recovered;
 		for(int k=0;k<MAX_TICKS; k++) {
 			country.simulateOneStep();
 			country.printState(k);
 			if (((country.numInfected+country.numRecovered)-oldnum)!=0){
 				days = days+k;
-				int finaldays = this.numofdays(days);
+				
 			}
 			int infected = country.numInfected + country.numRecovered;
-			int infection = this.Infection(infected);
-			int recovered = country.numRecovered;
-			int recover = this.Recover(recovered);
+			
+			recovered = country.numRecovered;
+			
 			oldnum = infected;
 			if (country.numInfected==0) {
 				break;
 
 			}
 		}
+		RunSimulation simulation = new RunSimulation(days,oldnum,recovered);
 		System.out.println("\nFinal State of the Country");
 		country.printCountry();
 
-	}
-	public int numofdays(int days){
-		return days;
-	}
-	public int Infection(int infected){
-		return infected;
-	}
-	public int Recover(int recovered){
-		return recovered;
 	}
 
 
